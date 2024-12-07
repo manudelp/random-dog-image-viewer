@@ -9,9 +9,10 @@ namespace random_dog_image_viewer
     {
         protected async void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                await GetRandomDogImageUrl();
+                string imageUrl = await GetRandomDogImageUrl();
+                imgDog.ImageUrl = imageUrl;
             }
         }
 
